@@ -20,20 +20,28 @@ Hello.
 
 ## Preparation:
 
-#### Step 1 (Optional): New AWS sandbox account
+#### Step 1: Clone this repository.
+
+```shell
+gh repo clone viniciusvec/nts-eng
+```
+
+Note: If you don't have git installed, [install git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+
+#### Step 2 (Optional): New AWS sandbox account
 
 Creating a new AWS account to hold this environment is highly recommended to make the clean-up steps easier and avoid Security problems.
 
-#### Step 2: Configure AWS CLI
+#### Step 3: Configure AWS CLI
 
 See docs: https://docs.aws.amazon.com/cli/latest/reference/configure/#examples
 
-#### Step 3: Install Terraform
+#### Step 4: Install Terraform
 
 See docs: https://developer.hashicorp.com/terraform/install
 <br /><br />
 
-#### Step 4: Deploy terraform
+#### Step 5: Deploy terraform
 
 run:
 
