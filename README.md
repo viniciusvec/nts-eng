@@ -18,6 +18,8 @@ Hello.
 
 ### 1: List all running instances in a specified region.
 
+run:
+
 ```shell
 python3 task3_1.py eu-west-2
 ```
@@ -27,6 +29,8 @@ example output: <br />
 <br /><br />
 
 ### 2: Check if instances are using the latest Amazon Machine Image (AMI).
+
+run:
 
 ```shell
 python3 task3_2.py eu-west-2
@@ -72,6 +76,7 @@ terraform destroy -auto-approve
 ### 4: List all environments using instances tags (dev, prod, staging)
 
 In the terraform file `resource_group.tf` has been created. Resource groups can be easily used to enumerate resources based on attributes such as tags.
+run:
 
 ```shell
 aws resource-groups list-group-resources --group-name dev_resource_group
@@ -83,6 +88,8 @@ example output: <br />
 
 ### 5: List all security groups in a specified region.
 
+run:
+
 ```shell
 python3 task3_5.py eu-west-2
 ```
@@ -92,6 +99,8 @@ example output: <br />
 <br /><br />
 
 ### 6:Identify security groups with overly permissive inbound rules (allowing all traffic) and print their details.
+
+run:
 
 ```shell
 python3 task3_6.py eu-west-2
@@ -103,11 +112,14 @@ example output: <br />
 
 ### 7: Implement a function to update security groups to restrict overly permissive rules.
 
+run:
+
 ```shell
 python3 task3_7.py eu-west-2
 ```
 
 Then check that none is left using instruction 6.
+run:
 
 ```shell
 python3 task3_6.py eu-west-2
