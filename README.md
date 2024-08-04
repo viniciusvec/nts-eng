@@ -2,6 +2,8 @@
 
 Hello.
 
+## Instructions overview
+
 ### Instance Security:
 
 1. List all running instances in a specified region.
@@ -15,6 +17,31 @@ Hello.
 6. Identify security groups with overly permissive inbound rules (allowing all traffic) and
    print their details.
 7. Implement a function to update security groups to restrict overly permissive rules.
+
+## Preparation:
+
+#### Step 1 (Optional): New AWS sandbox account
+
+Creating a new AWS account to hold this environment is highly recommended to make the clean-up steps easier and avoid Security problems.
+
+#### Step 2: Configure AWS CLI
+
+See docs: https://docs.aws.amazon.com/cli/latest/reference/configure/#examples
+
+#### Step 3: Install Terraform
+
+See docs: https://developer.hashicorp.com/terraform/install
+<br /><br />
+
+#### Step 4: Deploy terraform
+
+run:
+
+```shell
+terraform plan -out tf-plan; terraform apply tf-plan
+```
+
+## Instructions
 
 ### 1: List all running instances in a specified region.
 
@@ -45,12 +72,6 @@ example output: <br />
 The terraform code uses `aws_autoscaling_group` and `aws_launch_configuration`, which are fed by the resource `data.aws_ami.ubuntu-linux` to dynamically pull AMI information when building ec2 instances. To do that, it uses a _filter_, contained in a variable on dedicated file `ami_variable.tf`. When this file is replaced, Terraform will have definition of a new AMI available. This file is replaced upon execution of python script below, which pulls the latest AMI information - this could be later made into a Lambda function.
 Terraform currently contains an old release `20240605`. The expected update at of time of writing is the release from `20240605.1` to `20240801`
 
-First deploy the instances
-
-```shell
-terraform plan -out tf-plan; terraform apply tf-plan
-```
-
 Run python script to update the variable:
 
 ```shell
@@ -66,12 +87,6 @@ terraform plan -out tf-plan
 example output: <br />
 <img src="images/task3_3.gif"/>
 <br /><br />
-
-_clean-up_
-
-```shell
-terraform destroy -auto-approve
-```
 
 ### 4: List all environments using instances tags (dev, prod, staging)
 
@@ -128,3 +143,11 @@ python3 task3_6.py eu-west-2
 example output: <br />
 <img src="images/3.7.jpg"/>
 <br /><br />
+
+# clean-up
+
+run:
+
+```shell
+terraform destroy -auto-approve
+```
